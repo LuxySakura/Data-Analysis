@@ -1,0 +1,126 @@
+---
+title: "Regression Tutorial"
+author: "Mingrui Duan"
+output: pdf_document
+---
+
+### 0. Before we start: How to load data and check whether we have done it right?
+To run "Regression", we must load the dataset first to start our analysis. To achieve that, we can use the following function to load .csv file(Or the appropriate one, depends on your dataset type):
+```{r}
+# Load the ".csv" file
+data <- read.csv("Class7-WHR20_DataForFigure2.1.csv")
+```
+
+After loaded successfully, the very first thing we do is to do the following checks to make sure we could use the data properly afterwards:
+- The overall data size(How many points you have)
+- The attribute list(The columns)
+- The exact number of each attribute(The rows)
+You can run the following function to check quickly:
+```{r}
+# Check the data quickly
+summary(data)
+```
+
+\newpage
+
+### 1. What is "Linear Regression" and the technique to achieve that
+
+"Linear Regression" can be split into two words: Linear & Regression, which "Linear" means a straight line-like and "Regression" basically means that you want to simulate or predict the output with some input given the history data you have. So "Linear Regression" means you want to fit all the data points into some straight line. Here's an example(The data we have and how we fit that into a line):
+```{r}
+library("ggplot2") # Load the lib we're going to use
+plt <- ggplot(data, aes(x=Freedom.to.make.life.choices, y=Social.support)) +
+  geom_point(color = "red", alpha = 0.6) +
+  stat_smooth(method = "lm", formula = y~x) +
+  xlab("Freedom to make life choices") +
+  ylab("Social Support")
+plt
+```
+
+To run the best fit, which means this line are the "closest" to all the current points, we must use something to measure the "distance" each point to the line: That's the meaning of "Residual"(The mathematical error between prediction and true value). We will choose the line which has the minimal value after summing all points' residual.
+
+\newpage
+
+### 2. How can we conduct linear Regression in R?
+To run linear regression in R, you should use the "lm" function and input the "predictors" in a proper order related to the attribute you want to "regression", you can then get the linear regression you want.
+```{r}
+# Run the linear regression
+l <- lm(Social.support ~ Freedom.to.make.life.choices, data = data)
+# Check the result of what we got
+summary(l)
+
+plt + geom_abline(intercept = 0.4, slope = 0.5, color = "green") +
+  geom_abline(intercept = 0.4, slope = 0.8, color = "yellow") +
+  geom_abline(intercept = 0.2, slope = 0.5, color = "blue")
+```
+Here "slope" means how much your predictor can affect the output(graphically means how steer your line is); "Intercept" means when your predictors are "0", what will the output be(graphically means the value your line conjoint with the y-axis). p-value here indicates the probability that the observed relationship between the variables occurred by chance.
+
+\newpage
+
+### 3. Key assumptions before doing linear regression
+
+However, we cannot use linear regression without following these assumptions, otherwise our output won't be convincing:
+- The residuals must be normal for the data we use
+- The effects are linear
+- The standard deviation of the residuals is constant
+To check the assumption of the normality of residuals, we should use QQ plot;
+To check the effect are linear, we could function "check_model";
+
+```{r}
+# Check whether the residuals are normal
+qqnorm(residuals(l))
+# Check whether the effect is linear
+library(performance)
+check_model(l)
+```
+
+If the plot we got have the points fit perfectly with the central line, it illustrates that the residual distribution of out data is normal, which means then we can conduct liner regression on them.
+If the output of "cor()" is close to 1/-1, then it's linear.
+
+\newpage
+
+### 4. "Standardize" in Regression, Why & How
+"Standardize" is really common in doing regressions, the reason is that in some situations our predictors' scale can be extremely incomparable. Running the standardization process can help us avoid the bias due to different scale, reduce the impact of outliers and easier to interpret(coefficient means the change in the variable with one standard deviation change in the predictor variable).
+
+```{r}
+# scatter plots of standardized
+plt.standardized <- ggplot(data, aes(x=scale(Logged.GDP.per.capita),y=Social.support)) +
+  geom_point(color="blue", alpha=0.5) +
+  stat_smooth(method="lm", formula=y~x)
+plt.standardized
+# scatter plot of un-standardized
+plt.unstandardized <- ggplot(data, aes(x=Logged.GDP.per.capita,y=Social.support)) +
+  geom_point(color="blue", alpha=0.5) +
+  stat_smooth(method="lm", formula=y~x)
+plt.unstandardized
+```
+
+Graphically, after standardized, the predictors' distribution won't change but the middle point will be 0; the regression(let's say, the line) will have the same scale if every predictor are standardized.
+
+\newpage
+
+### 5. Example of Continuous X with continuous interaction
+```{r}
+# Run the linear regression
+conti <- lm(Healthy.life.expectancy ~ scale(Logged.GDP.per.capita) +
+  scale(Freedom.to.make.life.choices) +
+  scale(Logged.GDP.per.capita)*scale(Freedom.to.make.life.choices),
+            data = data)
+summary(conti)
+```
+Here both predictors are continuous. Interaction here means value of one coefficient depends on the value of another. The intercept value means when both predictors are mean, what y value would be; As for the other coefficients about the two predictors, it means how much can each predictor effect Healthy.life.expectancy; the last coefficient measures the level of one predictor effect the other one. To recover the predicted Healthy.life.expectancy value, you just need to compute the following formula with the coefficient you got from the summary: y = intercept + coefficient of predictor_1 * predictor_1 +  coefficient of predictor_2 * predictor_2 + last coefficient * predictor_1 * predictor_2.
+To "summary", you just need to call the "summary" function. p-value here means whether the model we simulated is fit; t-value here means the significance of each coefficient.
+
+\newpage
+
+### 6. Example of discrete & continuous X with interacting with a slop and intercept.
+```{r}
+# Add an indicator for whether you are in Europe
+data$InEurope <- is.element(data$Regional.indicator,
+                         c("Central and Eastern Europe", "Western Europe"))
+dis <- lm(Healthy.life.expectancy ~ InEurope * scale(Freedom.to.make.life.choices) +
+  scale(Logged.GDP.per.capita),
+          data=data)
+summary(dis)
+```
+
+Here we got a discrete factor: "InEurope", and we assume it has interaction with "Freedom to make life choices". The intercept value means when the region is "not Europe" and the Logged.GDP.per.capita are the mean value, what would be the predicted Healthy.life.expectancy; As for the other coefficients about the two predictors, it means how much can each predictor effect y; The coefficient of the term "InEurope * scale(Freedom.to.make.life.choices)" means when the region belongs to Europe, how much the Freedom.to.make.life.choices affects the Healthy.life.expectancy. To recover, you should know whether the current region is in Europe. If it's in Europe, then you need to multiply the coefficient of the term "InEurope * scale(Freedom.to.make.life.choices)" with InEurope is TRUE and add the other predictor; However if the current region isn't in Europe, then you just only need to use another predictor. p-value here means whether the model we simulated is fit; t-value here means the significance of each coefficient. For the last t-value, it means how much significance InEurope do to the "scale(Freedom.to.make.life.choices)".

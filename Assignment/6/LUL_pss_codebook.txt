@@ -1,0 +1,157 @@
+. codebook, compact
+
+Variable      Obs Unique      Mean        Min       Max  Label
+--------------------------------------------------------------------------------------------------------------------------------------------------
+id             96     96     216.5        101       332  Subject #
+study_code     96      3         .          .         .  Study Code
+exp1           96      2  .3333333          0         1  Identifier for Exp 1
+exp2           96      2  .3333333          0         1  Identifier for Exp 2
+exp3           96      2  .3333333          0         1  Identifier for Exp 3
+exp4           22      1         1          1         1  Identifier for Exp 4
+exp5           23      1         1          1         1  Identifier for Exp 5
+dob            96     84  19519.04      19275     19881  Date of Birth
+dot1           96     75  19682.78      19446     20027  Date of Lab Visit #1
+dot2           96     76  19690.79      19453     20034  Date of Lab Visit #2
+dot3           45     39  20036.11      19820     20265  Date of Lab Visit #3 (Exps 4-5 only)
+female         96      2  .4895833          0         1  Gender (male = 0; female = 1)
+dad            95      2        .2          0         1  Is Primary Parent Male?
+train          96      2       1.5          1         2  Training Condition
+pref1          96     95  .5041831   .0930233  .9003322  Baseline: proportion gaze to singer of familiar song
+famfam         96     82  501.7083         28       895  Familiarization: # frames gaze to familiar song
+famun          96     90  476.7604          0       702  Familiarization: # frames gaze to unfamiliar song
+pref2          96     94   .539504   .0175824  .9509202  Test: proportion gaze to singer of familiar song
+diff           96     96  .0353209  -.4881692  .5328366  Increase in proportion of looking from baseline to test
+etotal         96     73  68.60935         13  270.6667  Estimated total song performances
+totskypesing   32     26  48.71875         25        83  Total song performances, from videos (Exp 3 only)
+stim           96      8         .          .         .  Counterbalancing Condition Code
+othersing      32      3    .40625          0         2  # of other singers at home
+comply_no      63      2  .1269841          0         1  Did parent fail to comply with instruction?
+module         32     14         .          .         .  Toy module assignment (Exp 2 only)
+skype_before   28      2  .8571429          0         1  Did baby Skype before this study?
+ammat          31     17  25.70968         16        34  AMMA - Tonal (Raw Score)
+ammar          31     13  27.48387         19        34  AMMA - Rhythm (Raw Score)
+ammatot        31     18  53.19355         35        66  AMMA - Total (Raw Score)
+ammapr         31     18  55.12903          8        86  AMMA - Percentile Rank
+ipad_num       32      8   4.21875          1         8  iPad assignment (Exp 3 only)
+famtot_6       22     21  202.6364         57       360  Exp 4: total gaze during familiar song, first phrase
+unfamtot_6     22     22  178.1818         48       271  Exp 4: total gaze during unfamiliar song, first phrase
+totprac        32     32   5.48221   .0292358    22.339  Exp 1: Total Practice Time
+totw           32     23  179.9461          0  1163.583  Exp 1: Practice Time (with words)
+totnw          32     11  46.47228          0  343.7641  Exp 1: Practice Time (without words)
+age            96     39   5.64271    4.99384  6.472279  Age (in months)
+length         96      8  8.010417          7        14  Length of exposure (in days)
+delay          45     40  8.556696   2.989733  12.09035  Time between initial exposure and memory test (Exps 4-5 only)
+mtotsing       96     76  8.814369   1.857143  38.66667  Mean # Daily Song Performances
+mbabylike      96     44  3.355368   1.333333         5  Mean Rating of Baby Enjoyment
+msingcomf      32     24  4.122836   2.428571         5  Mean Rating of Singing Comfort
+mtotrecord     96     74  7.953628          0  96.66666  Mean Daily Listening to Recorded Songs
+m_othersong    96     49  3.860081          0  23.71428  Mean # Daily Songs (other than trained)
+pright         32     12    .85125        .52         1  Parent Singing Accuracy (% correct)
+diarymissing   96      7  .8020833          0         7  # of missing diary entries
+comply_fup     96      2  .8854167          0         1  Did anyone sing during delay period?
+survey_com~n   96     15  .9094979       .125         1  Rate of survey completion
+smsingrate     32     32  .0975029          0  .4555556  Exp 3: Rate of smiling during singing
+smtalkrate     32     30  .0543396          0  .3274321  Exp 3: Rate of smiling during talking
+gzsingrate     32     32  .6232481   .2462687  .8704963  Exp 3: Rate of gazing during singing
+gztalkrate     32     32  .5468705    .246875  .7547765  Exp 3: Rate of gazing during talking
+famtot         23     21  960.9565        770      1167  exp 5: total gaze during familiar song
+unfamtot       23     22  894.1739        695      1105  exp 5: total gaze during unfamiliar song
+totsing1       96     17  8.510417          0        40  Day 1 # of Song Performances
+babylike1      96      5  3.260417          1         5  Day 1 Rating of Baby Enjoyment
+singcomf1      32      4   3.53125          2         5  Day 1 Rating of Singing Comfort
+totrecord1     94     15  7.861702          0       100  Day 1 # of Recorded Songs
+othersong1     96     15    3.3125          0        41  Day 1 # Daily Songs (other than lullaby)
+dtword1        32     29  81.95389          0  293.8942  Day 1 Practice Time (words)
+dtnoword1      32     22  44.12042          0  212.4499  Day 1 Practice Time (no words)
+totsing2       95     21  10.36842          0        50  Day 2 # of Song Performances
+babylike2      95      5  3.305263          1         5  Day 2 Rating of Baby Enjoyment
+singcomf2      32      4   4.03125          2         5  Day 2 Rating of Singing Comfort
+totrecord2     94     18  7.957447          0       100  Day 2 # of Recorded Songs
+othersong2     95     22  3.968421          0        30  Day 2 # Daily Songs (other than lullaby)
+dtword2        32     16  40.14945          0   384.781  Day 2 Practice Time (words)
+dtnoword2      32     15  31.23257          0  177.9362  Day 2 Practice Time (no words)
+totsing3       94     18  9.989362          0        50  Day 3 # of Song Performances
+babylike3      95      5  3.336842          1         5  Day 3 Rating of Baby Enjoyment
+singcomf3      32      3      4.25          3         5  Day 3 Rating of Singing Comfort
+totrecord3     93     16  8.462366          0       100  Day 3 # of Recorded Songs
+othersong3     94     16  3.319149          0        30  Day 3 # Daily Songs (other than lullaby)
+dtword3        32     13  27.29635          0  243.5671  Day 3 Practice Time (words)
+dtnoword3      32      6  7.793045          0  100.5546  Day 3 Practice Time (no words)
+totsing4       95     17  8.063158          0        42  Day 4 # of Song Performances
+babylike4      95      5  3.378947          1         5  Day 4 Rating of Baby Enjoyment
+singcomf4      32      4     4.125          2         5  Day 4 Rating of Singing Comfort
+totrecord4     91     16  7.703297          0        80  Day 4 # of Recorded Songs
+othersong4     95     19  3.621053          0        29  Day 4 # Daily Songs (other than lullaby)
+dtword4        32     10  24.18536          0  321.9076  Day 4 Practice Time (words)
+dtnoword4      32      4  1.410633          0  25.56155  Day 4 Practice Time (no words)
+totsing5       94     18  8.202128          0        40  Day 5 # of Song Performances
+babylike5      92      5  3.326087          1         5  Day 5 Rating of Baby Enjoyment
+singcomf5      32      3   4.28125          3         5  Day 5 Rating of Singing Comfort
+totrecord5     94     19  7.648936          0       100  Day 5 # of Recorded Songs
+othersong5     94     19  3.808511          0        29  Day 5 # Daily Songs (other than lullaby)
+dtword5        32     13  17.99222          0  86.82429  Day 5 Practice Time (words)
+dtnoword5      32      4  6.926291          0  138.5596  Day 5 Practice Time (no words)
+totsing6       88     17  8.522727          0        52  Day 6 # of Song Performances
+babylike6      88      5  3.386364          1         5  Day 6 Rating of Baby Enjoyment
+singcomf6      31      4  4.225806          2         5  Day 6 Rating of Singing Comfort
+totrecord6     88     17  8.056818          0       100  Day 6 # of Recorded Songs
+othersong6     88     18  3.954545          0        30  Day 6 # Daily Songs (other than lullaby)
+dtword6        32      5  6.479838          0   79.3502  Day 6 Practice Time (words)
+dtnoword6      32      2   1.41102          0  45.15263  Day 6 Practice Time (no words)
+totsing7       71     13  7.901408          2        38  Day 7 # of Song Performances
+babylike7      71      4   3.56338          2         5  Day 7 Rating of Baby Enjoyment
+singcomf7      25      4      4.28          2         5  Day 7 Rating of Singing Comfort
+totrecord7     69     17  7.434783          0        40  Day 7 # of Recorded Songs
+othersong7     71     14  4.971831          0        79  Day 7 # Daily Songs (other than lullaby)
+dtword7        32      7  10.24868          0  106.1017  Day 7 Practice Time (words)
+dtnoword7      32      4  6.960592          0   146.209  Day 7 Practice Time (no words)
+totsing8       19     10  6.578947          0        15  Day 8 # of Song Performances
+babylike8      18      4  3.611111          2         5  Day 8 Rating of Baby Enjoyment
+singcomf8       8      3     4.375          3         5  Day 8 Rating of Singing Comfort
+totrecord8     18      8  6.444444          0        25  Day 8 # of Recorded Songs
+othersong8     19      7  3.736842          0        15  Day 8 # Daily Songs (other than lullaby)
+dtword8        32      7  7.810811          0  52.96546  Day 8 Practice Time (words)
+dtnoword8      32      2  1.542246          0  49.35186  Day 8 Practice Time (no words)
+totsing9       18      9  6.944444          3        16  Day 9 # of Song Performances
+babylike9      18      4  3.666667          2         5  Day 9 Rating of Baby Enjoyment
+singcomf9       8      3      4.25          3         5  Day 9 Rating of Singing Comfort
+totrecord9     18      9  7.055556          0        25  Day 9 # of Recorded Songs
+othersong9     18      8       4.5          0        28  Day 9 # Daily Songs (other than lullaby)
+dtword9        32      3  5.128955          0  139.5715  Day 9 Practice Time (words)
+dtnoword9      32      1         0          0         0  Day 9 Practice Time (no words)
+totsing10      10      5       4.7          0         8  Day 10 # of Song Performances
+babylike10      9      2  3.555556          3         4  Day 10 Rating of Baby Enjoyment
+singcomf10      4      3         4          3         5  Day 10 Rating of Singing Comfort
+totrecord10     8      5      5.25          0        30  Day 10 # of Recorded Songs
+othersong10    10      5       6.4          0        30  Day 10 # Daily Songs (other than lullaby)
+dtword10       32      2  1.534694          0   49.1102  Day 10 Practice Time (words)
+dtnoword10     32      1         0          0         0  Day 10 Practice Time (no words)
+totsing11       5      4       7.6          4        12  Day 11 # of Song Performances
+babylike11      5      2       3.4          3         4  Day 11 Rating of Baby Enjoyment
+singcomf11      4      3      4.25          3         5  Day 11 Rating of Singing Comfort
+totrecord11     5      3       5.2          0        20  Day 11 # of Recorded Songs
+othersong11     5      3       7.6          0        28  Day 11 # Daily Songs (other than lullaby)
+dtword11       32      2  2.300918          0  73.62939  Day 11 Practice Time (words)
+dtnoword11     32      1         0          0         0  Day 11 Practice Time (no words)
+totsing12       4      3      5.25          2         8  Day 12 # of Song Performances
+babylike12      4      3         4          3         5  Day 12 Rating of Baby Enjoyment
+singcomf12      3      3         4          3         5  Day 12 Rating of Singing Comfort
+totrecord12     4      4       6.5          0        20  Day 12 # of Recorded Songs
+othersong12     4      2      1.25          0         5  Day 12 # Daily Songs (other than lullaby)
+dtword12       32      1         0          0         0  Day 12 Practice Time (words)
+dtnoword12     32      1         0          0         0  Day 12 Practice Time (no words)
+totsing13       2      2         5          0        10  Day 13 # of Song Performances
+babylike13      2      2       3.5          3         4  Day 13 Rating of Baby Enjoyment
+singcomf13      2      2       4.5          4         5  Day 13 Rating of Singing Comfort
+totrecord13     2      2       7.5          0        15  Day 13 # of Recorded Songs
+othersong13     2      1         0          0         0  Day 13 # Daily Songs (other than lullaby)
+dtword13       32      2  1.655571          0  52.97826  Day 13 Practice Time (words)
+dtnoword13     32      2  .7990437          0   25.5694  Day 13 Practice Time (no words)
+totsing14       1      1         4          4         4  Day 14 # of Song Performances
+babylike14      1      1         3          3         3  Day 14 Rating of Baby Enjoyment
+singcomf14      1      1         4          4         4  Day 14 Rating of Singing Comfort
+totrecord14     1      1         0          0         0  Day 14 # of Recorded Songs
+othersong14     1      1         0          0         0  Day 14 # Daily Songs (other than lullaby)
+dtword14       32      1         0          0         0  Day 14 Practice Time (words)
+dtnoword14     32      1         0          0         0  Day 14 Practice Time (no words)
+--------------------------------------------------------------------------------------------------------------------------------------------------
