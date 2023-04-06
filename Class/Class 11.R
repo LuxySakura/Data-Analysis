@@ -22,3 +22,6 @@ ggplot(d, aes()) +
 ggplot(d, aes(x=Pclass, y=Survived)) +
   stat_summary(fun.y = mean, geom = "bar", fill = "lightpurple") +
   stat_summary(fun.data = mean_se, geom = "errorbar")
+
+# Logistic Regression
+# y = f(b0 + b1*x)
