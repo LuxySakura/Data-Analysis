@@ -25,3 +25,7 @@ ggplot(d, aes(x=Pclass, y=Survived)) +
 
 # Logistic Regression
 # y = f(b0 + b1*x)
+
+inv_logit <- function (z) {
+  1/(1+exp(-z))
+}
